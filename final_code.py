@@ -133,7 +133,7 @@ print(selected_features)
 X_train, X_test, y_train, y_test = train_test_split(X_selected, y, test_size=0.2, random_state=42)
 
 # Specify the classification algorithm and hyperparameter grid
-clf_input = 'AdaBoost'
+clf_input = 'SVC'
 
 if clf_input == 'DecisionTree':
     clf_param_grid = {
@@ -215,8 +215,7 @@ best_classifier = grid_search_classifier.best_estimator_
 #as k_best (number of features=20)
 print("Evaluation on Test data\n")
 classification_pipeline(best_classifier, X_train, X_test, y_train, y_test)
-'''
+
 predicted_labels = best_classifier.predict(X_test_selected)
 predicted_labels = pd.DataFrame(le.inverse_transform(predicted_labels))
 predicted_labels.to_csv("predicted_labels.txt", sep='\t', index=False,header=None)
-'''
